@@ -1,0 +1,24 @@
+<!-- mostrar-rol.component.html -->
+<p-card header="Registro de Roles" class="w-full">
+    <div *ngIf="roles.length === 0">
+      <p>No hay roles registrados.</p>
+    </div>
+    <p-table *ngIf="roles.length > 0" [value]="roles">
+      <ng-template pTemplate="header">
+        <tr>
+          <th>Nombre</th>
+          <th>Acciones</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-rol>
+        <tr>
+          <td>{{ rol.nombre }}</td>
+          <td>
+            <button pButton icon="pi pi-pencil" class="mr-2" (click)="editarRol(rol.id)"></button>
+            <button pButton icon="pi pi-trash" class="mr-2" (click)="eliminarRol(rol.id)"></button>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+    <button pButton label="Agregar Rol" class="mt-4" (click)="agregarRol()"></button>
+  </p-card>

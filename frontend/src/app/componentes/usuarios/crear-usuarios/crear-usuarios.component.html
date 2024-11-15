@@ -1,0 +1,31 @@
+<!-- crear-usuario.component.html -->
+<p-card header="Crear/Editar Usuario" class="w-full">
+    <form [formGroup]="form" novalidate (ngSubmit)="onSubmit()">
+      <div class="grid">
+        <div class="col-6">
+          <label>Nombre</label>
+          <input type="text" pInputText formControlName="nombre" />
+        </div>
+        <div class="col-6">
+          <label>Email</label>
+          <input type="email" pInputText formControlName="email" />
+        </div>
+        <div class="col-6">
+          <label>Password</label>
+          <input type="password" pInputText formControlName="password" />
+        </div>
+        <div class="col-6">
+          <label>Fecha de Nacimiento</label>
+          <input type="date" pInputText formControlName="birthday" />
+        </div>
+        <div class="col-6">
+          <label>Rol</label>
+          <p-dropdown [options]="roles" formControlName="roleId" placeholder="Seleccione un rol"></p-dropdown>
+        </div>
+      </div>
+      <div class="mt-4">
+        <button pButton label="Guardar" icon="pi pi-save" type="submit"></button>
+        <button pButton label="Cancelar" class="ml-2" (click)="cancel()"></button>
+      </div>
+    </form>
+  </p-card>

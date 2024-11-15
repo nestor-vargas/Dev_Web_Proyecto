@@ -1,0 +1,15 @@
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .p-field {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  button {
+    align-self: flex-start;
+  }
+  

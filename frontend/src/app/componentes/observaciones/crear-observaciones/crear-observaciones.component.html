@@ -1,0 +1,44 @@
+<!-- crear-observacion.component.html -->
+<p-card header="Crear/Editar Observación" class="w-full">
+    <form [formGroup]="form" novalidate (ngSubmit)="onSubmit()">
+      <div class="grid">
+        <div class="col-6">
+          <label>PH</label>
+          <input type="number" pInputText formControlName="ph" />
+        </div>
+        <div class="col-6">
+          <label>Oxígeno</label>
+          <input type="number" pInputText formControlName="oxigeno" />
+        </div>
+        <div class="col-6">
+          <label>Amonio</label>
+          <input type="number" pInputText formControlName="amonio" />
+        </div>
+        <div class="col-6">
+          <label>Nitrito</label>
+          <input type="number" pInputText formControlName="nitrito" />
+        </div>
+        <div class="col-6">
+          <label>Nitrato</label>
+          <input type="number" pInputText formControlName="nitrato" />
+        </div>
+        <div class="col-6">
+          <label>Temperatura</label>
+          <input type="number" pInputText formControlName="temperatura" />
+        </div>
+        <div class="col-6">
+          <label>Fecha</label>
+          <input type="date" pInputText formControlName="fecha" />
+        </div>
+        <div class="col-6">
+          <label>Zona</label>
+          <p-dropdown [options]="zonas" formControlName="zonaId" placeholder="Seleccione una zona"></p-dropdown>
+        </div>
+      </div>
+      <div class="mt-4">
+        <button pButton label="Guardar" icon="pi pi-save" type="submit"></button>
+        <button pButton label="Cancelar" class="ml-2" (click)="cancel()"></button>
+      </div>
+    </form>
+  </p-card>
+  

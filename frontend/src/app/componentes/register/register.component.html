@@ -1,0 +1,26 @@
+<p-card header="Registro" styleClass="ui-card-shadow">
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+      <div class="p-field">
+        <label for="nombre">Nombre</label>
+        <input id="nombre" pInputText formControlName="nombre" />
+      </div>
+  
+      <div class="p-field">
+        <label for="email">Email</label>
+        <input id="email" pInputText formControlName="email" />
+      </div>
+  
+      <div class="p-field">
+        <label for="password">Contraseña</label>
+        <input id="password" pPassword formControlName="password" />
+      </div>
+  
+      <div class="p-field">
+        <label for="birthday">Fecha de Nacimiento</label>
+        <p-calendar formControlName="birthday" dateFormat="dd/mm/yy"></p-calendar>
+      </div>
+  
+      <button pButton type="submit" label="Registrarse" [disabled]="!registerForm.valid"></button>
+    </form>
+    <p>¿Ya tienes cuenta? <a [routerLink]="['/login']">Inicia sesión</a></p>
+  </p-card>

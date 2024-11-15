@@ -1,0 +1,40 @@
+<!-- mostrar-observacion.component.html -->
+<p-card header="Registro de Observaciones" class="w-full">
+    <div *ngIf="observaciones.length === 0">
+      <p>No hay observaciones registradas.</p>
+    </div>
+    <p-table *ngIf="observaciones.length > 0" [value]="observaciones">
+      <ng-template pTemplate="header">
+        <tr>
+          <th>PH</th>
+          <th>Oxígeno</th>
+          <th>Amonio</th>
+          <th>Nitrato</th>
+          <th>Temperatura</th>
+          <th>Fecha</th>
+          <th>Zona</th>
+          <th>Acciones</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-observacion>
+        <tr>
+          <td>{{ observacion.ph }}</td>
+          <td>{{ observacion.oxigeno }}</td>
+          <td>{{ observacion.amonio }}</td>
+          <td>{{ observacion.nitrato }}</td>
+          <td>{{ observacion.temperatura }}</td>
+          <td>{{ observacion.fecha }}</td>
+          <td>{{ observacion.zonaId }}</td>
+          <td>
+            <button pButton icon="pi pi-pencil" class="mr-2" (click)="editarObservacion(observacion.id)"></button>
+            <button pButton icon="pi pi-trash" class="mr-2" (click)="eliminarObservacion(observacion.id)"></button>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+    <button pButton label="Agregar Observación" class="mt-4" (click)="agregarObservacion()"></button>
+    <div *ngIf="!isAdmin">
+      <button pButton label="Cerrar Sesión" class="mt-4 p-button-danger" (click)="cerrarSesion()"></button>
+    </div>
+  </p-card>
+  

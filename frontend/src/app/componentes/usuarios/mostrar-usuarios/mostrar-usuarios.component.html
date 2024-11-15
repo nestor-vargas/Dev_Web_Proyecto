@@ -1,0 +1,30 @@
+<!-- mostrar-usuarios.component.html -->
+<p-card header="Registro de Usuarios" class="w-full">
+    <div *ngIf="usuarios.length === 0">
+      <p>No hay usuarios registrados.</p>
+    </div>
+    <p-table *ngIf="usuarios.length > 0" [value]="usuarios">
+      <ng-template pTemplate="header">
+        <tr>
+          <th>Nombre</th>
+          <th>Email</th>
+          <th>Fecha de Nacimiento</th>
+          <th>Rol</th>
+          <th>Acciones</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-usuario>
+        <tr>
+          <td>{{ usuario.nombre }}</td>
+          <td>{{ usuario.email }}</td>
+          <td>{{ usuario.birthday | date }}</td>
+          <td>{{ getRole(usuario.roleId)}}</td>
+          <td>
+            <button pButton icon="pi pi-pencil" class="mr-2" (click)="editarUsuario(usuario.id)"></button>
+            <button pButton icon="pi pi-trash" class="mr-2" (click)="eliminarUsuario(usuario.id)"></button>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+    <button pButton label="Agregar Usuario" class="mt-4" (click)="agregarUsuario()"></button>
+  </p-card>

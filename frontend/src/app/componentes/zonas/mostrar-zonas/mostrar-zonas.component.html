@@ -1,0 +1,28 @@
+<!-- mostrar-zona.component.html -->
+<p-card header="Registro de Zonas" class="w-full">
+    <div *ngIf="zonas.length === 0">
+      <p>No hay zonas registradas.</p>
+    </div>
+    <p-table *ngIf="zonas.length > 0" [value]="zonas">
+      <ng-template pTemplate="header">
+        <tr>
+          <th>Nombre</th>
+          <th>Ubicación</th>
+          <th>Descripción</th>
+          <th>Acciones</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-zona>
+        <tr>
+          <td>{{ zona.nombre }}</td>
+          <td>{{ zona.ubicacion }}</td>
+          <td>{{ zona.descripcion }}</td>
+          <td>
+            <button pButton icon="pi pi-pencil" class="mr-2" (click)="editarZona(zona.id)"></button>
+            <button pButton icon="pi pi-trash" class="mr-2" (click)="eliminarZona(zona.id)"></button>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+    <button pButton label="Agregar Zona" class="mt-4" (click)="agregarZona()"></button>
+  </p-card>
